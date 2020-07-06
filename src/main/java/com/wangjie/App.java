@@ -4,12 +4,14 @@ import javafx.application.Application;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * 项目启动
  * @author  wangjie
  */
 @MapperScan("com.wangjie.mapper")
+@EnableTransactionManagement
 @SpringBootApplication
 public class App {
 
