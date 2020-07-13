@@ -1,53 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wangjie.mapper.SysOrgMapper">
-  <resultMap id="BaseResultMap" type="com.wangjie.model.SysOrg">
-    <!--
-      WARNING - mybatis 自动生成方法，请勿改动
-    -->
-    <id column="o_id" jdbcType="BIGINT" property="oId" />
-    <result column="po_id" jdbcType="BIGINT" property="poId" />
-    <result column="d_id" jdbcType="BIGINT" property="dId" />
-    <result column="pd_id" jdbcType="BIGINT" property="pdId" />
-    <result column="level" jdbcType="INTEGER" property="level" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="sort" jdbcType="INTEGER" property="sort" />
-    <result column="enabled" jdbcType="BIT" property="enabled" />
-    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--
-      WARNING - mybatis 自动生成方法，请勿改动
-    -->
+    <resultMap id="BaseResultMap" type="com.wangjie.model.SysOrg">
+        <id column="o_id" jdbcType="BIGINT" property="oId"/>
+        <result column="po_id" jdbcType="BIGINT" property="poId"/>
+        <result column="d_id" jdbcType="BIGINT" property="dId"/>
+        <result column="pd_id" jdbcType="BIGINT" property="pdId"/>
+        <result column="level" jdbcType="INTEGER" property="level"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+        <result column="enabled" jdbcType="BIT" property="enabled"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_org
     where o_id = #{oId,jdbcType=BIGINT}
   </delete>
-  
-  <insert id="insert" parameterType="com.wangjie.model.SysOrg">
-    <!--
-      WARNING - mybatis 自动生成方法，请勿改动
-    -->
-    <selectKey keyProperty="oId" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into sys_org (po_id, d_id, pd_id, 
-      level, name, sort, 
-      enabled, create_by, update_by, 
-      create_time, update_time)
-    values (#{poId,jdbcType=BIGINT}, #{dId,jdbcType=BIGINT}, #{pdId,jdbcType=BIGINT}, 
-      #{level,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
-      #{enabled,jdbcType=BIT}, #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
-  </insert>
-  
-  <update id="updateByPrimaryKey" parameterType="com.wangjie.model.SysOrg">
-    <!--
-      WARNING - mybatis 自动生成方法，请勿改动
-    -->
+
+    <insert id="insert" parameterType="com.wangjie.model.SysOrg">
+        <selectKey keyProperty="oId" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into sys_org (po_id, d_id, pd_id,
+        level, name, sort,
+        enabled, create_by, update_by,
+        create_time, update_time)
+        values (#{poId,jdbcType=BIGINT}, #{dId,jdbcType=BIGINT}, #{pdId,jdbcType=BIGINT},
+        #{level,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER},
+        #{enabled,jdbcType=BIT}, #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.wangjie.model.SysOrg">
     update sys_org
     set po_id = #{poId,jdbcType=BIGINT},
       d_id = #{dId,jdbcType=BIGINT},
@@ -62,15 +50,12 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where o_id = #{oId,jdbcType=BIGINT}
   </update>
-  
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--
-      WARNING - mybatis 自动生成方法，请勿改动
-    -->
-    select o_id, po_id, d_id, pd_id, level, name, sort, enabled, create_by, update_by, 
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select o_id, po_id, d_id, pd_id, level, name, sort, enabled, create_by, update_by,
     create_time, update_time
     from sys_org
     where o_id = #{oId,jdbcType=BIGINT}
   </select>
-  
+
 </mapper>
